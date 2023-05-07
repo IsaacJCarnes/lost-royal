@@ -1,4 +1,11 @@
 #Header{
     height: 5vh;
-    margin-bottom: 1vh;
+    color: rgb(0, 0, 0);
+}
+
+h1{
+    position: absolute;
+    font-size: 30px;
+    right: 25px;
+    top: 0px;
 }

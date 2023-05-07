@@ -1,6 +1,11 @@
 .App{
-    background-color: rgb(22, 22, 22);
+    background-color: rgb(161, 144, 144);
     height: 100%;
     width: 100vw;
     position: fixed;
+}
+
+#Content{
+    display: flex;
+    justify-content: center;
 }

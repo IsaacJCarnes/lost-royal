@@ -1,0 +1,31 @@
+:root{
+    --num-width: 6;
+    --num-height: 3;
+    --board-size: 85vmin;
+}
+
+#Checkerboard{
+    display:flex;
+    flex-wrap: wrap;
+    align-content: baseline;
+    width: var(--board-size);
+    height: var(--board-size);
+}
+
+.checkerTile{
+    position: relative;
+    display: block;
+    width: calc(100%/var(--num-width));
+    height: calc(100%/var(--num-width));
+}
+
+.topTile{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.bottomTile{
+    position: absolute;
+    top:0;
+    bottom:0;
+}
