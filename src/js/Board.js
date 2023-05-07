@@ -7,14 +7,40 @@ import {
 } from "../helpers/SVGHolder";
 
 function Board() {
-  const height = 2;
+  const height = 3;
   const width = 6;
   const tiles = [];
   for (let i = 0; i < height; i++) {
+    let adjustPercent = (-4*i)+"%";
     for (let j = 0; j < width; j++) {
       let index = i * width + j + i;
       let color = index % 2 === 0 ? "white" : "black";
       tiles.push(
+        <div
+          key={"tile" + index}
+          id={"tile" + index}
+          className={"checkerTile " + color}
+          style={{top: adjustPercent}}
+        >
+          {index % 2 === 0 ? (
+              <WhiteTopTile/>
+          ) : (
+              <BlackTopTile/>
+          )}
+          {index % 2 === 0 ? (
+              <WhiteBottomTile/>
+          ) : (
+              <BlackBottomTile/>
+          )}
+        </div>
+      );
+    }
+  }
+  return <div id="Checkerboard">{tiles}</div>;
+}
+
+/*
+tiles.push(
         <div
           key={"tile" + index}
           id={"tile" + index}
@@ -40,9 +66,6 @@ function Board() {
           )}
         </div>
       );
-    }
-  }
-  return <div id="Checkerboard">{tiles}</div>;
-}
+*/
 
 export default Board;

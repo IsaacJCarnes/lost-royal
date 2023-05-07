@@ -19,6 +19,20 @@
     height: calc(100%/var(--num-width));
 }
 
+#TopTile{
+    position: absolute;
+    left: 0px;
+    width: 110%;
+    height: 110%;
+}
+
+#BottomTile{
+    position: absolute;
+    left: 0px;
+    width: 110%;
+    height: 110%;
+}
+
 .topTile{
     position: absolute;
     left: 0;

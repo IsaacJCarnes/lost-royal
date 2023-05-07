@@ -6,7 +6,7 @@ export const WhiteTopTile = () => {
       height="19.84375mm"
       viewBox="0 0 87.988744 74.999999"
       version="1.1"
-      id="svg5"
+      id="TopTile"
     >
       <defs id="defs2" />
       <g id="layer1" transform="translate(-65,-40)">
@@ -38,7 +38,7 @@ export const WhiteBottomTile = () => {
       height="19.84375mm"
       viewBox="0 0 87.988744 74.999999"
       version="1.1"
-      id="svg5"
+      id="BottomTile"
     >
       <defs id="defs2" />
       <g id="layer1" transform="translate(-65,-40)">
@@ -76,7 +76,7 @@ export const BlackTopTile = () => {
       height="19.84375mm"
       viewBox="0 0 87.988744 74.999999"
       version="1.1"
-      id="svg5"
+      id="TopTile"
     >
       <defs id="defs2" />
       <g id="layer1" transform="translate(-65,-40)">
@@ -100,39 +100,39 @@ export const BlackTopTile = () => {
 };
 
 export const BlackBottomTile = () => {
-    return (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="23.280355mm"
-    height="19.84375mm"
-    viewBox="0 0 87.988744 74.999999"
-    version="1.1"
-    id="svg5"
-  >
-    <defs id="defs2" />
-    <g id="layer1" transform="translate(-65,-40)">
-      <path
-        id="rect4440"
-        display={"inline"}
-        fill="#626262"
-        fillOpacity={1}
-        strokeWidth={0}
-        paintOrder={"stroke fill markers"}
-        d="m 145,40 7.98874,14.999999 V 115 L 145,99.999996 Z"
-      />
-      <path
-        id="rect1108"
-        display={"inline"}
-        fill="#757575"
-        fillOpacity={1}
-        strokeWidth={0.37795275}
-        paintOrder={"stroke fill markers"}
-        strokeDasharray={"none"}
-        stroke="#757575"
-        strokeOpacity={1}
-        d="m 65,99.999992 h 80 L 152.98874,115 H 72.988743 Z"
-      />
-    </g>
-  </svg>
-    )
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="23.280355mm"
+      height="19.84375mm"
+      viewBox="0 0 87.988744 74.999999"
+      version="1.1"
+      id="BottomTile"
+    >
+      <defs id="defs2" />
+      <g id="layer1" transform="translate(-65,-40)">
+        <path
+          id="rect4440"
+          display={"inline"}
+          fill="#626262"
+          fillOpacity={1}
+          strokeWidth={0}
+          paintOrder={"stroke fill markers"}
+          d="m 145,40 7.98874,14.999999 V 115 L 145,99.999996 Z"
+        />
+        <path
+          id="rect1108"
+          display={"inline"}
+          fill="#757575"
+          fillOpacity={1}
+          strokeWidth={0.37795275}
+          paintOrder={"stroke fill markers"}
+          strokeDasharray={"none"}
+          stroke="#757575"
+          strokeOpacity={1}
+          d="m 65,99.999992 h 80 L 152.98874,115 H 72.988743 Z"
+        />
+      </g>
+    </svg>
+  );
 };
