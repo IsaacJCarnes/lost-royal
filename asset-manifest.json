@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/lost-royal/static/css/main.4dfe8821.css",
+    "main.js": "/lost-royal/static/js/main.57982ff9.js",
+    "index.html": "/lost-royal/index.html",
+    "main.4dfe8821.css.map": "/lost-royal/static/css/main.4dfe8821.css.map",
+    "main.57982ff9.js.map": "/lost-royal/static/js/main.57982ff9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4dfe8821.css",
+    "static/js/main.57982ff9.js"
+  ]
+}
