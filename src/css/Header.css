@@ -1,6 +1,7 @@
 #Header{
     height: 5vh;
     color: rgb(0, 0, 0);
+    margin-bottom: 2vh;
 }
 
 h1{
@@ -8,4 +9,10 @@ h1{
     font-size: 30px;
     right: 25px;
     top: 0px;
+}
+
+input{
+    width: 40px;
+    padding: 1vmin;
+    height: 20px;
 }
