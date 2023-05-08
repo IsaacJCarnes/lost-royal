@@ -10,9 +10,7 @@ ReactDOM.createRoot(document.getElementById('root')
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/lost-royal" element={<App />}>
-          <Route index element={<Board />} />
-        </Route>
+        <Route path="/lost-royal/*" element={<App />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
