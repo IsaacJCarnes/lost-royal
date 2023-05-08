@@ -7,14 +7,24 @@ import {
   WhiteTopTile,
 } from "../helpers/SVGHolder";
 
-function Board() {
-  const height = 3;
-  const width = 6;
+function Board({ width, height }) {
   const [tiles, setTiles] = useState([]);
   useEffect(() => {
+    let foundStylesheet = document.getElementById('dynamicStylesheet');
+    var styles = ":root{--num-width: "+width+";--num-height: "+height+";--board-size: 85vmin;}";
+    if(foundStylesheet === null){
+      var styleSheet = document.createElement("style");
+      styleSheet.innerText = styles;
+      styleSheet.id="dynamicStylesheet";
+      document.head.appendChild(styleSheet);
+    } else {
+      foundStylesheet.innerText = styles;
+      console.log(foundStylesheet.innerText);
+    }
+
     let tempTiles = [];
     for (let i = 0; i < height; i++) {
-      let adjustPercent = (-4*i)+"%";
+      let adjustPercent = -4 * i + "%";
       for (let j = 0; j < width; j++) {
         let index = i * width + j + i;
         let color = index % 2 === 0 ? "white" : "black";
@@ -23,24 +33,16 @@ function Board() {
             key={"tile" + index}
             id={"tile" + index}
             className={"checkerTile " + color}
-            style={{top: adjustPercent}}
+            style={{ top: adjustPercent }}
           >
-            {index % 2 === 0 ? (
-                <WhiteTopTile/>
-            ) : (
-                <BlackTopTile/>
-            )}
-            {index % 2 === 0 ? (
-                <WhiteBottomTile/>
-            ) : (
-                <BlackBottomTile/>
-            )}
+            {index % 2 === 0 ? <WhiteTopTile /> : <BlackTopTile />}
+            {index % 2 === 0 ? <WhiteBottomTile /> : <BlackBottomTile />}
           </div>
         );
       }
     }
     setTiles(tempTiles);
-  }, []);
+  }, [width, height]);
   return <div id="Checkerboard">{tiles}</div>;
 }
 

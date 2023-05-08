@@ -11,10 +11,10 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header width={width} setWidth={setWidth} height={height} setHeight={setHeight}/>
       <div id="Content">
         <Routes>
-          <Route index element={<Board />} />
+          <Route index element={<Board width={width} height={height}/>} />
         </Routes>
       </div>
     </div>
