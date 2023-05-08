@@ -26,17 +26,21 @@ function Board({ width, height }) {
     for (let i = 0; i < height; i++) {
       let adjustPercent = -4 * i + "%";
       for (let j = 0; j < width; j++) {
-        let index = i * width + j + i;
-        let color = index % 2 === 0 ? "white" : "black";
+        let trueIndex = i * width + j;
+        let colorIndex = i * width + j + i
+        if(width %2 === 1){
+          colorIndex = trueIndex;
+        }
+        let color = colorIndex % 2 === 0 ? "white" : "black";
         tempTiles.push(
           <div
-            key={"tile" + index}
-            id={"tile" + index}
+            key={"tile" + trueIndex}
+            id={"tile" + trueIndex}
             className={"checkerTile " + color}
             style={{ top: adjustPercent }}
           >
-            {index % 2 === 0 ? <WhiteTopTile /> : <BlackTopTile />}
-            {index % 2 === 0 ? <WhiteBottomTile /> : <BlackBottomTile />}
+            {colorIndex % 2 === 0 ? <WhiteTopTile /> : <BlackTopTile />}
+            {colorIndex % 2 === 0 ? <WhiteBottomTile /> : <BlackBottomTile />}
           </div>
         );
       }
