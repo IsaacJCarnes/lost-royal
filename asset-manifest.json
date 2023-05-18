@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/lost-royal/static/css/main.ce026821.css",
-    "main.js": "/lost-royal/static/js/main.2c297111.js",
+    "main.css": "/lost-royal/static/css/main.1b973c36.css",
+    "main.js": "/lost-royal/static/js/main.58a8e483.js",
     "index.html": "/lost-royal/index.html",
-    "main.ce026821.css.map": "/lost-royal/static/css/main.ce026821.css.map",
-    "main.2c297111.js.map": "/lost-royal/static/js/main.2c297111.js.map"
+    "main.1b973c36.css.map": "/lost-royal/static/css/main.1b973c36.css.map",
+    "main.58a8e483.js.map": "/lost-royal/static/js/main.58a8e483.js.map"
   },
   "entrypoints": [
-    "static/css/main.ce026821.css",
-    "static/js/main.2c297111.js"
+    "static/css/main.1b973c36.css",
+    "static/js/main.58a8e483.js"
   ]
 }
