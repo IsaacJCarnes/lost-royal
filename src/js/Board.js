@@ -15,15 +15,19 @@ function Board({ radius, centerCord,  }) {
   useEffect(() => {
     let tempTiles = [];
     let boardDiameter = (boardRadius*2+1);
+    let midX = boardRadius +1;
+    let midY = boardRadius +1;
     for (let i = 0; i < boardDiameter; i++) {
+      let curX = (i-midX+1)+centerCord.x;
       let adjustPercent = -4 * i + "%";
       for (let j = 0; j < boardDiameter; j++) {
+        let curY = (j-midY+1)+centerCord.y;
         let index = i * boardDiameter + j;
         let color = index % 2 === 0 ? "white" : "black";
         tempTiles.push(
           <div
             key={"tile" + index}
-            id={"tile" + index}
+            id={curX + " " + curY}
             className={"checkerTile " + color}
             style={{ top: adjustPercent }}
           >
