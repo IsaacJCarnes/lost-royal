@@ -7,11 +7,46 @@ import {
   WhiteTopTile,
 } from "../helpers/SVGHolder";
 
-function Board({ width, height }) {
+function Board({ radius, centerCord,  }) {
   const [tiles, setTiles] = useState([]);
+  const [boardSize, setBoardSize] = useState(0);
+  const [boardRadius, setBoardRadius] = useState(0);
+
   useEffect(() => {
+    let tempTiles = [];
+    let boardDiameter = (boardRadius*2+1);
+    for (let i = 0; i < boardDiameter; i++) {
+      let adjustPercent = -4 * i + "%";
+      for (let j = 0; j < boardDiameter; j++) {
+        let index = i * boardDiameter + j;
+        let color = index % 2 === 0 ? "white" : "black";
+        tempTiles.push(
+          <div
+            key={"tile" + index}
+            id={"tile" + index}
+            className={"checkerTile " + color}
+            style={{ top: adjustPercent }}
+          >
+            {index % 2 === 0 ? <WhiteTopTile /> : <BlackTopTile />}
+            {index % 2 === 0 ? <WhiteBottomTile /> : <BlackBottomTile />}
+          </div>
+        );
+      }
+    }
+    setTiles(tempTiles);
+  }, [boardRadius]);
+
+  useEffect(() => {
+    //Set board size based on pixels
+    let tempSize = (visualViewport.width < visualViewport.height ? visualViewport.width : visualViewport.height) *.85;
+    setBoardSize(tempSize);
+    //tempSize/2/tileSize
+    setBoardRadius(radius);
+
     let foundStylesheet = document.getElementById('dynamicStylesheet');
-    var styles = ":root{--num-width: "+width+";--num-height: "+height+";--board-size: 85vmin;}";
+    let boardDiameter = (radius*2+1);
+    let tileMargin = (radius - 4) * 3;
+    var styles = ":root{--board-size: "+(boardDiameter*50)+"px;--tile-margin: "+tileMargin+"px;}";
     if(foundStylesheet === null){
       var styleSheet = document.createElement("style");
       styleSheet.innerText = styles;
@@ -19,64 +54,10 @@ function Board({ width, height }) {
       document.head.appendChild(styleSheet);
     } else {
       foundStylesheet.innerText = styles;
-      console.log(foundStylesheet.innerText);
     }
+  }, [radius]);
 
-    let tempTiles = [];
-    for (let i = 0; i < height; i++) {
-      let adjustPercent = -4 * i + "%";
-      for (let j = 0; j < width; j++) {
-        let trueIndex = i * width + j;
-        let colorIndex = i * width + j + i
-        if(width %2 === 1){
-          colorIndex = trueIndex;
-        }
-        let color = colorIndex % 2 === 0 ? "white" : "black";
-        tempTiles.push(
-          <div
-            key={"tile" + trueIndex}
-            id={"tile" + trueIndex}
-            className={"checkerTile " + color}
-            style={{ top: adjustPercent }}
-          >
-            {colorIndex % 2 === 0 ? <WhiteTopTile /> : <BlackTopTile />}
-            {colorIndex % 2 === 0 ? <WhiteBottomTile /> : <BlackBottomTile />}
-          </div>
-        );
-      }
-    }
-    setTiles(tempTiles);
-  }, [width, height]);
   return <div id="Checkerboard">{tiles}</div>;
 }
-
-/*
-tiles.push(
-        <div
-          key={"tile" + index}
-          id={"tile" + index}
-          className={"checkerTile " + color}
-        >
-          {index % 2 === 0 ? (
-            <div className="topTile">
-              <WhiteTopTile/>
-            </div>
-          ) : (
-            <div className="topTile">
-              <BlackTopTile/>
-            </div>
-          )}
-          {index % 2 === 0 ? (
-            <div className="bottomTile">
-              <WhiteBottomTile/>
-            </div>
-          ) : (
-            <div className="bottomTile">
-              <BlackBottomTile/>
-            </div>
-          )}
-        </div>
-      );
-*/
 
 export default Board;

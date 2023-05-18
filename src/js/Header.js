@@ -1,16 +1,12 @@
 import '../css/Header.css';
-function Header({width, setWidth, height, setHeight}) {
+function Header({radius, setRadius}) {
 
   return (
     <div id="Header">
       <label>
-        Width: 
-      <input type="number" value={width} onChange={(e) => {e.preventDefault(); if(true){setWidth(e.target.value)}}}/>
+        Tile Radius: {radius}
       </label>
-      <label>
-        Height:
-      <input type="number" value={height} onChange={(e) => {e.preventDefault(); if(true){setHeight(e.target.value)}}}/>
-      </label>
+      <div id="btnArea"><button id="upBtn" onClick={(e) => {e.preventDefault(); setRadius(radius-1)}}>▼</button><button id="downBtn" onClick={(e) => {e.preventDefault(); setRadius(radius+1)}}>▲</button></div>
         <h1>The Lost Royal</h1>
     </div>
   );

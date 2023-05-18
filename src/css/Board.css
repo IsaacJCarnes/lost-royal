@@ -1,7 +1,9 @@
 #Checkerboard{
+    margin-top: 25vmin;
     display:flex;
     flex-wrap: wrap;
-    align-content: baseline;
+    align-content: center;
+    justify-content: center;
     width: var(--board-size);
     height: var(--board-size);
 }
@@ -9,22 +11,30 @@
 .checkerTile{
     position: relative;
     display: block;
-    width: calc(100%/var(--num-width));
-    height: calc(100%/var(--num-width));
+    width: 50px;
+    height: 55px;
+    margin-bottom: var(--tile-margin);
+}
+
+.blankTile{
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 55px;
 }
 
 #TopTile{
     position: absolute;
     left: 0px;
-    width: 110%;
-    height: 110%;
+    width: 55px;
+    height: 55px;
 }
 
 #BottomTile{
     position: absolute;
     left: 0px;
     width: 110%;
-    height: 110%;
+    height: 100%;
 }
 
 .topTile{
