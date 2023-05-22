@@ -14,31 +14,30 @@ function Board({ radius, centerCord,  }) {
 
   useEffect(() => {
     let tempTiles = [];
-    let boardDiameter = (boardRadius*2+1);
-    let midX = boardRadius +1;
-    let midY = boardRadius +1;
-    for (let i = 0; i < boardDiameter; i++) {
-      let curX = (i-midX+1)+centerCord.x;
-      let adjustPercent = -4 * i + "%";
-      for (let j = 0; j < boardDiameter; j++) {
-        let curY = (j-midY+1)+centerCord.y;
-        let index = i * boardDiameter + j;
-        let color = index % 2 === 0 ? "white" : "black";
+    let tileIndex = 0;
+    let rowIndex = 0;
+    for (let i = (centerCord.y-boardRadius); i <= (centerCord.y+boardRadius); i++) {
+      /*Tiles need to be moved up slightly more for each row farther down it is*/
+      let adjustPercent = -4 * rowIndex + "%";
+      rowIndex++;
+      for (let j = (centerCord.x-boardRadius); j <= (centerCord.x+boardRadius); j++) {
+        let color = (i^j) % 2 === 0 ? "white" : "black";
         tempTiles.push(
           <div
-            key={"tile" + index}
-            id={curX + " " + curY}
+            key={"tile" + tileIndex}
+            id={i + " " + j}
             className={"checkerTile " + color}
             style={{ top: adjustPercent }}
           >
-            {index % 2 === 0 ? <WhiteTopTile /> : <BlackTopTile />}
-            {index % 2 === 0 ? <WhiteBottomTile /> : <BlackBottomTile />}
+            {color === "white" ? <WhiteTopTile /> : <BlackTopTile />}
+            {color === "white" ? <WhiteBottomTile /> : <BlackBottomTile />}
           </div>
         );
+        tileIndex += 1;
       }
     }
     setTiles(tempTiles);
-  }, [boardRadius]);
+  }, [boardRadius, centerCord]);
 
   useEffect(() => {
     //Set board size based on pixels
