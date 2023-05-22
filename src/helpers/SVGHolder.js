@@ -1,4 +1,4 @@
-export const WhiteTopTile = () => {
+export const WhiteTopTile = ({tilePos}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -11,7 +11,7 @@ export const WhiteTopTile = () => {
       <defs id="defs2" />
       <g id="layer1" transform="translate(-65,-40)">
         <rect
-          id="rect240"
+          id={"tilePos " + tilePos}
           width="80.040504"
           height="59.999996"
           x="65"
@@ -68,7 +68,7 @@ export const WhiteBottomTile = () => {
   );
 };
 
-export const BlackTopTile = () => {
+export const BlackTopTile = ({tilePos}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ export const BlackTopTile = () => {
       <defs id="defs2" />
       <g id="layer1" transform="translate(-65,-40)">
         <rect
-          id="rect240"
+          id={"tilePos " + tilePos}
           width="80.040504"
           height="59.999996"
           x="65"

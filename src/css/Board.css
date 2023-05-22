@@ -1,5 +1,6 @@
 #Checkerboard{
     margin-top: 25vmin;
+    position: absolute;
     display:flex;
     flex-wrap: wrap;
     align-content: center;
@@ -21,6 +22,7 @@
     display: block;
     width: 50px;
     height: 55px;
+    z-index: -1;
 }
 
 #TopTile{
@@ -28,6 +30,7 @@
     left: 0px;
     width: 55px;
     height: 55px;
+    z-index: 1;
 }
 
 #BottomTile{
@@ -35,6 +38,7 @@
     left: 0px;
     width: 110%;
     height: 100%;
+    z-index: 0;
 }
 
 .topTile{
