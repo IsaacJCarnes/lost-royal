@@ -5,6 +5,7 @@ import {
   BlackTopTile,
   WhiteBottomTile,
   WhiteTopTile,
+  RoyalChar,
 } from "../helpers/SVGHolder";
 
 function between(x, min, max) {
@@ -48,6 +49,8 @@ function Board({ radius, centerCord, setCenterCord, range, setRange, maxRange, e
         let extraTags = "";
         if(centerCord.x === j && centerCord.y === i){
           extraTags += " center"
+        } else if(between(j, centerCord.x-1, centerCord.x+1) && between(i, centerCord.y-1, centerCord.y+1)){
+          extraTags += " clickable"
         }
 
         if ((!between(j, maxRange.minX, maxRange.maxX) || !between(i, maxRange.minY, maxRange.maxY)) || tempEmptyTiles.includes(i + " " + j)) {
@@ -67,7 +70,9 @@ function Board({ radius, centerCord, setCenterCord, range, setRange, maxRange, e
               className={"checkerTile " + color+ extraTags}
               style={{ top: adjustPercent }}
             >
-              {color === "white" ? <WhiteTopTile tilePos={i + " " + j}/> : <BlackTopTile tilePos={i + " " + j}/>}
+              {extraTags.includes("clickable") ? <div className="clickableElem" key={"clickable"+i+j}/> : <></>}
+              {extraTags.includes("center") ? <RoyalChar/> : <></>}
+              {color === "white" ? <WhiteTopTile tilePos={i + " " + j} extraTags={extraTags}/> : <BlackTopTile tilePos={i + " " + j} extraTags={extraTags}/>}
               {color === "white" ? <WhiteBottomTile /> : <BlackBottomTile />}
             </div>
           );
@@ -109,7 +114,7 @@ function Board({ radius, centerCord, setCenterCord, range, setRange, maxRange, e
     }
   }, [radius]);
 
-  return <div id="Checkerboard" onClick={(e) => {e.preventDefault(); if(e.target.id.includes("tilePos") && e.target.id !== "tilePos "+centerCord.x + " " + centerCord.y){setCenterCord({x: parseInt(e.target.id.split(" ")[2]), y: parseInt(e.target.id.split(" ")[1])})}}}>{tiles}</div>;
+  return <div id="Checkerboard" onClick={(e) => {e.preventDefault(); if(e.target.className.baseVal.includes("clickable")){setCenterCord({x: parseInt(e.target.id.split(" ")[2]), y: parseInt(e.target.id.split(" ")[1])})}}}>{tiles}</div>;
 }
 
 export default Board;

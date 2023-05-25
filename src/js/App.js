@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header radius={radius} setRadius={setRadius}/>
+      <Header position={pos}/>
       <div id="Content">
         <Routes>
           <Route index element={<Board radius={radius} centerCord={pos} setCenterCord={setPos} range={knownRange} setRange={setKnownRange} maxRange={maxRange} emptyTiles={emptyTiles} setEmptyTiles={setEmptyTiles}/>} />

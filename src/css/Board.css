@@ -41,6 +41,33 @@
     z-index: 0;
 }
 
+#RoyalChar{
+    position: absolute;
+    z-index: 3;
+    width: 45px;
+    height: auto;
+    left: 2px;
+    bottom: 15px;
+    pointer-events: none;
+    transform: rotate3d(20px, 20px);
+}
+/* Tiles which can be clicked by user */
+/*rect.clickable{
+    fill: green;
+}*/
+.clickableElem{
+    position: absolute;
+    width: inherit;
+    top: 4px;
+    height: 38px;
+    z-index: 2;
+    pointer-events: none;
+    animation-name: clickFlashing;
+    animation-delay: 3s;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
 .topTile{
     position: absolute;
     left: 0;
@@ -50,4 +77,11 @@
     position: absolute;
     top:0;
     bottom:0;
+}
+
+@keyframes clickFlashing {
+    0% { background-color: rgba(0, 102, 31, 0);}
+    50% { background-color: rgba(0, 158, 47, 0.5);}
+    100% { background-color: rgba(0, 102, 31, 0);}
+    
 }
